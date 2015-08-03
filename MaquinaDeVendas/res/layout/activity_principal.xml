@@ -1,0 +1,158 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Selecione uma categoria"
+        android:textColor="@color/laranja_primario"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="@color/laranja_primario"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_voltar"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_chevron_left_black_36dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/Activiy_Principal_vp_categoria"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </android.support.v4.view.ViewPager>
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_avancar"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_chevron_right_black_36dp" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/Activiy_Principal_gv_produto"
+        style="@style/scrollbar_shape_style"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="auto_fit" >
+    </GridView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/laranja_primario"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Activiy_Principal_bt_cancelar"
+            style="@style/BotaoPadraoBranco"
+            android:text="Cancelar"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent" />
+
+        <Button
+            android:id="@+id/Activiy_Principal_bt_confirmar"
+            style="@style/BotaoPadraoBranco"
+            android:text="Confirmar"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Activiy_Principal_tv_credito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Credito disponível: 3,50"
+        android:textColor="@color/cinza_primario"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/laranja_primario"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_2_reais"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_2_reais" />
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_5_reais"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_5_reais" />
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_10_reais"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_10_reais" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/laranja_primario"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_25_centavos"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_25_centavos" />
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_50_centavos"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_50_centavos" />
+
+        <ImageButton
+            android:id="@+id/Activiy_Principal_bt_somar_1_real"
+            style="@style/BotaoPadraoBranco"
+            android:layout_width="200px"
+            android:layout_height="150px"
+            android:scaleType="center"
+            android:src="@drawable/ic_1_real" />
+    </LinearLayout>
+
+</LinearLayout>

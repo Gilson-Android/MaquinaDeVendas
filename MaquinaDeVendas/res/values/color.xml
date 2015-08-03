@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="laranja_primario">#F5770A</color>
+    <color name="cinza_primario">#FFBABABA</color>
+    <color name="branco_desabilitado">#4dFFFFFF</color>
+    <color name="vermelho_destaque_escuro">#D50000</color>
+</resources>
