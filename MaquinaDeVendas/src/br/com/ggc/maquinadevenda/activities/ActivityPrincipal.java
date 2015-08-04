@@ -1,4 +1,11 @@
 package br.com.ggc.maquinadevenda.activities;
+/**Classe principal do app.
+
+ * @author Gilson Gonçalves de Carvalho
+
+ * @version 0.00001
+
+ */
 
 import java.util.ArrayList;
 
@@ -28,7 +35,7 @@ public class ActivityPrincipal extends Activity {
 	ImageButton button_Voltar,button_Avancar;
 	ImageButton button_25_centavos,button_50_centavos,button_1_Real,button_2_Reais,button_5_Reais,button_10_Reais;
 	Button button_Confirmar,button_Cancelar;
-	TextView textView_Saldo;
+	TextView textView_Saldo,textView_ProdutoSelecionado;
 	EstoqueDinheiro estoqueDinheiro = new EstoqueDinheiro();
 	ArrayList<Produto> listaProduto;
 	
@@ -50,6 +57,7 @@ public class ActivityPrincipal extends Activity {
 		button_5_Reais = (ImageButton) findViewById(R.id.Activiy_Principal_bt_somar_5_reais);
 		button_10_Reais = (ImageButton) findViewById(R.id.Activiy_Principal_bt_somar_10_reais);
 		textView_Saldo = (TextView) findViewById(R.id.Activiy_Principal_tv_credito);
+		textView_ProdutoSelecionado = (TextView) findViewById(R.id.Activiy_Principal_tv_produdo_selecionado);
 		viewPager_CategoriaProduto = (ViewPager) findViewById(R.id.Activiy_Principal_vp_categoria);
 		gridView_Produto = (GridView) findViewById(R.id.Activiy_Principal_gv_produto);
 		listaCategoria = new ArrayList<>();
@@ -73,11 +81,12 @@ public class ActivityPrincipal extends Activity {
 		button_Voltar.setEnabled(false);
 	}
 	
-	//Metodo que possivelmente tera origem de um xml,json ou sqllite
+	//Metodo que possivelmente terá origem de um xml,json ou sqllite
 	//Também existe a possibilidade da maquina ter uma rotina fisica que faz o scaneamento dos produtos existentes
 	public void carregarMostruario(){
 		Categoria categoria = new Categoria();
 		categoria.setDescricao("Todas Categorias");
+		categoria.setIcone(R.drawable.ic_todas_categorias);
 		listaCategoria.add(categoria);
 		
 		categoria = new Categoria();
@@ -126,8 +135,20 @@ public class ActivityPrincipal extends Activity {
 			public void onPageSelected(int _position) {
 				// TODO Auto-generated method stub
 				AdapterProduto	adapterProduto = new AdapterProduto(ActivityPrincipal.this, listaCategoria.get(_position).getListaProduto());
-				
 				gridView_Produto.setAdapter(adapterProduto);
+				
+				if (viewPager_CategoriaProduto.getCurrentItem() == listaCategoria.size()-1) {
+					button_Avancar.setEnabled(false);
+					
+				}else {
+					button_Avancar.setEnabled(true);
+				}
+				
+				if (viewPager_CategoriaProduto.getCurrentItem() == 0) {
+					button_Voltar.setEnabled(false);
+				}else {
+					button_Voltar.setEnabled(true);
+				}		
 			}
 			
 			@Override
@@ -267,6 +288,8 @@ public class ActivityPrincipal extends Activity {
 					Toast.makeText(ActivityPrincipal.this, msg, Toast.LENGTH_LONG).show();
 				}
 				Toast.makeText(ActivityPrincipal.this, "Obrigado pela preferência", Toast.LENGTH_LONG).show();
+				estoqueDinheiro.getSaldo().setProdutoSelecionado(-1);
+				viewPager_CategoriaProduto.setCurrentItem(0);
 				atualizarSaldoTela();
 			}
 		});
@@ -278,6 +301,7 @@ public class ActivityPrincipal extends Activity {
 				button_Confirmar.setEnabled(false);
 				button_Cancelar.setEnabled(false);
 				Toast.makeText(ActivityPrincipal.this, estoqueDinheiro.liberarTroco(), Toast.LENGTH_LONG).show();
+				estoqueDinheiro.getSaldo().setProdutoSelecionado(-1);
 				atualizarSaldoTela();
 			}
 		});
@@ -298,6 +322,7 @@ public class ActivityPrincipal extends Activity {
 					button_Confirmar.setEnabled(true);
 					button_Cancelar.setEnabled(true);
 				}
+				atualizarSaldoTela();
 			}
 		});
 	}
@@ -313,6 +338,15 @@ public class ActivityPrincipal extends Activity {
 	}
 	
 	private void atualizarSaldoTela(){
-		textView_Saldo.setText(String.format("Saldo disponível R$ %10.2f",estoqueDinheiro.getSaldo().getAtual()));
+		textView_Saldo.setText(String.format("Saldo R$ %10.2f",estoqueDinheiro.getSaldo().getAtual()));
+		if (estoqueDinheiro.getSaldo().getProdutoSelecionado()> -1) {
+			textView_ProdutoSelecionado.setVisibility(View.VISIBLE);
+			textView_ProdutoSelecionado.setText(listaCategoria.get(viewPager_CategoriaProduto.getCurrentItem()).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getDescricao() + " " +  String.format("R$ %10.2f",listaCategoria.get(0).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getValor_Produto()));
+		}else {
+			textView_ProdutoSelecionado.setVisibility(View.GONE);
+			textView_ProdutoSelecionado.setText("");
+		}
+		
+		
 	}
 }

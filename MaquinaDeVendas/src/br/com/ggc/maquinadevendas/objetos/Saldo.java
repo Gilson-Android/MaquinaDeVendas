@@ -1,9 +1,16 @@
 package br.com.ggc.maquinadevendas.objetos;
+/**Classe responsavel por saldo disponivel para compra
+
+ * @author Gilson Gonçalves de Carvalho
+
+ * @version 0.00001
+
+ */
 
 public class Saldo {
 	
 	float atual = 0;
-	int produtoSelecionado;
+	int produtoSelecionado = -1;
 	
 	public float getAtual() {
 		return atual;

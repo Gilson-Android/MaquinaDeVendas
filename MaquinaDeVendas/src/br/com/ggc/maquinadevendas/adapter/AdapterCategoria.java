@@ -1,4 +1,11 @@
 package br.com.ggc.maquinadevendas.adapter;
+/**Classe responsavel por mostrar as categorias
+
+ * @author Gilson Gonçalves de Carvalho
+
+ * @version 0.00001
+
+ */
 
 import java.util.ArrayList;
 

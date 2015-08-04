@@ -63,31 +63,47 @@
         <Button
             android:id="@+id/Activiy_Principal_bt_cancelar"
             style="@style/BotaoPadraoBranco"
-            android:text="Cancelar"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:enabled="false"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent" />
+            android:text="Cancelar" />
 
         <Button
             android:id="@+id/Activiy_Principal_bt_confirmar"
             style="@style/BotaoPadraoBranco"
-            android:text="Confirmar"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:enabled="false"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent" />
+            android:text="Confirmar" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/Activiy_Principal_tv_credito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
-        android:text="Credito disponível: 3,50"
+        android:text="Saldo: 3,50"
+        android:textAlignment="textStart"
+        android:textColor="@color/cinza_primario"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Activiy_Principal_tv_produdo_selecionado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:text="Produto"
+        android:textAlignment="textEnd"
         android:textColor="@color/cinza_primario"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"

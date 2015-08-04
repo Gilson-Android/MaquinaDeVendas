@@ -1,4 +1,11 @@
 package br.com.ggc.maquinadevendas.objetos;
+/**Classe base
+
+ * @author Gilson Gonçalves de Carvalho
+
+ * @version 0.00001
+
+ */
 
 public class Base {
 

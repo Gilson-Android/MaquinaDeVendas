@@ -1,4 +1,11 @@
 package br.com.ggc.maquinadevendas.objetos;
+/**Classe responsavel por agrupar os produtos por categoria
+
+ * @author Gilson Gonçalves de Carvalho
+
+ * @version 0.00001
+
+ */
 
 import java.util.ArrayList;
 
@@ -17,3 +24,4 @@ public class Categoria extends Base {
 		this.listaProduto = listaProduto;
 	}
 }
+
