@@ -152,27 +152,27 @@ public class EstoqueDinheiro {
 		float total = saldo.getAtual();
 		while (saldo.getAtual() >= 10 && cedula_10_Reais > 0) {
 			removerCedula_10_Reais();
-			notasLiberadas.append("Cedula de 10 reais liebrada \n");
+			notasLiberadas.append("Cedula de 10 reais liberada \n");
 		}
 		while (saldo.getAtual() >= 5 && cedula_5_Reais > 0) {
 			removerCedula_5_Reais();
-			notasLiberadas.append("Cedula de 5 reais liebrada \n");
+			notasLiberadas.append("Cedula de 5 reais liberada \n");
 		}
 		while (saldo.getAtual() >= 2 && cedula_2_Reais > 0) {
 			removerCedula_2_Reais();
-			notasLiberadas.append("Cedula de 2 reais liebrada \n");
+			notasLiberadas.append("Cedula de 2 reais liberada \n");
 		}
 		while (saldo.getAtual() >= 1 && moeda_1_Real > 0) {
 			removerMoeda_1_Real();
-			notasLiberadas.append("Moeda de 1 real liebrada \n");
+			notasLiberadas.append("Moeda de 1 real liberada \n");
 		}
 		while (saldo.getAtual() >= 0.5 && moeda_50_Centavos > 0) {
 			removerMoeda_50_Centavos();
-			notasLiberadas.append("Moeda de 50 centavos liebrada \n");
+			notasLiberadas.append("Moeda de 50 centavos liberada \n");
 		}
 		while (saldo.getAtual() >= 0.25 && moeda_25_Centavos > 0) {
 			removerMoeda_25_Centavos();
-			notasLiberadas.append("Moeda de 25 centavos liebrada \n");
+			notasLiberadas.append("Moeda de 25 centavos liberada \n");
 		}
 		if (notasLiberadas.toString().length() > 0) {
 			notasLiberadas.append("Total----------");
