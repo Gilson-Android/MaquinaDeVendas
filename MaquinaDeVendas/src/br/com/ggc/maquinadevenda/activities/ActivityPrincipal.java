@@ -341,7 +341,7 @@ public class ActivityPrincipal extends Activity {
 		textView_Saldo.setText(String.format("Saldo R$ %10.2f",estoqueDinheiro.getSaldo().getAtual()));
 		if (estoqueDinheiro.getSaldo().getProdutoSelecionado()> -1) {
 			textView_ProdutoSelecionado.setVisibility(View.VISIBLE);
-			textView_ProdutoSelecionado.setText(listaCategoria.get(viewPager_CategoriaProduto.getCurrentItem()).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getDescricao() + " " +  String.format("R$ %10.2f",listaCategoria.get(0).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getValor_Produto()));
+			textView_ProdutoSelecionado.setText(listaCategoria.get(viewPager_CategoriaProduto.getCurrentItem()).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getDescricao() + " " +  String.format("R$ %10.2f",listaCategoria.get(viewPager_CategoriaProduto.getCurrentItem()).getListaProduto().get(estoqueDinheiro.getSaldo().getProdutoSelecionado()).getValor_Produto()));
 		}else {
 			textView_ProdutoSelecionado.setVisibility(View.GONE);
 			textView_ProdutoSelecionado.setText("");
